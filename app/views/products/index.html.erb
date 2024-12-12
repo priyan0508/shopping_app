@@ -1,0 +1,32 @@
+<h1>Products</h1>
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= product.name %></td>
+          <td><%= product.price %></td>
+          <td><%= link_to 'Show', product_path(product) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+<p><%= link_to "Add Product", new_product_path %></p>
+
+<%= button_to "Logout", destroy_user_session_path, method: :delete, data: { no_turbolink: true } %>
+
+<%= link_to "Show Profile", profiles_path(current_user) %>
+
+<%= link_to "Addresses", new_address_path %>
+
+

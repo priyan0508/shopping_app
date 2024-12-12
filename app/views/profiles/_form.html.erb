@@ -1,0 +1,31 @@
+
+<%= form_with model: @profile do |form| %>
+
+<div>
+  <%= form.label :name %><br>
+  <%= form.text_field :name %>
+</div>
+
+<div>
+  <%= form.label :contact_no %><br>
+  <%= form.text_field :contact_no %>
+</div>
+
+<div>
+  <%= form.label :age %><br>
+  <%= form.text_field :age %>
+</div>
+
+<div>
+  <%= form.label :gender %><br>
+  <%= form.text_field :gender %>
+</div>  
+
+<div>
+  <%= form.submit "create profile" %>
+</div>
+
+<% end %>
+<%= link_to "show", profile_path(@profile) if @profile.persisted? %>
+
+<%= link_to "cancel ", root_path %>
