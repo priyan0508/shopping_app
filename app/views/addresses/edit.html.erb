@@ -1,8 +1,38 @@
 <h1> Edit </h1>
 
-<%# <%= form_with model: address do |form| %> %>
+<%# <%= form_with model: address do |form| %> 
   
-<%# <%= form_with model: @address, url: address_path, method: :patch do |f| %> %>
+<%# <%= form_with model: @address, url: address_path, method: :patch do |f| %>
   
 
-<%= render "form", address: @address %>
+<%# <%= render "form", address: @address %> 
+
+
+
+<%= form_with model: @address do |form| %>
+
+<div>
+	<%= form.label :colony %><br>
+	<%= form.text_field :colony %>
+</div>
+
+<div>
+	<%= form.label :city %><br>
+	<%= form.text_field :city %>
+</div>
+
+<div>
+	<%= form.label :pincode %><br>
+	<%= form.text_field :pincode %>
+</div>
+
+<div>
+	<%= form.label :country %><br>
+	<%= form.text_field :country %>
+</div>	
+
+<div>
+	<%= form.submit "update address" %>
+</div>
+
+<% end %>

@@ -1,0 +1,6 @@
+<h1>Delivery Detail</h1>
+<p>Date:<%= @delivery_detail.date %></p>
+<p>Product:<%= @delivery_detail.product.name if @delivery_detail.product %></p>
+
+<%= link_to "Edit", edit_product_delivery_detail_path(@delivery_detail.product, @delivery_detail) %> |
+<%= link_to "Back", product_delivery_details_path(@delivery_detail.product) %>

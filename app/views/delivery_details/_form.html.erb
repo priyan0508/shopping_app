@@ -1,0 +1,10 @@
+<%= form_with(model: [@product, @delivery_detail], local: true) do |form| %>
+  <div>
+    <%= form.label :date %>
+    <%= form.date_field :date %>
+  </div>
+  <%= form.hidden_field :product_id, value: @product.id %>
+  <div>
+    <%= form.submit "Create Delivery Detail" %>
+  </div>
+<% end %>

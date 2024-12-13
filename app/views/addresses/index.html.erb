@@ -1,11 +1,12 @@
-<% if @addresses %>
+<% if @addresses.present? %>
   <ul>
     <% @addresses.each do |address| %>
       <li>
         <%= address.colony %>, <%= address.city %>, <%= address.country %>, <%= address.pincode %>
-        
+        <%# <%= link_to 'Add address', address_path(address) %>
         <%= link_to 'Edit', edit_address_path(address) %> |
-        <%= link_to'Delete', address_path(address), method: :delete, data: { confirm: 'Are you sure you want to delete this address?' } %>
+        <%= link_to 'Destroy', address_path(address), method: :delete, data: { turbo: false, confirm: 'Are you sure?' } %>
+
       </li>
     <% end %>
   </ul>

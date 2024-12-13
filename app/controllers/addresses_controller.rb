@@ -8,18 +8,19 @@ end
 def index
 	@addresses = current_user.addresses
 
+	#@address = current_user.address #(for one-to-to relation)
   #@address = Address.find_by(user_id: params[:user_id]) # or however you're querying
 
 
 end
 
 def create
-	@address = current_user.address.new(address_params)
+	@address = current_user.addresses.new(address_params)
 	
 	if @address.save
 		redirect_to addresses_path, notice: 'Address added successfully.'
 	else
-		render.new
+		render :new
 	end
 end
 
@@ -33,20 +34,31 @@ def update
 	# else
 	# 	render.edit
 	# end
+	 if @address.update(address_params)
+      redirect_to addresses_path, notice: 'Address updated successfully.'
+   else
+      render :edit
+   end
 end
 
+# def destroy
+# 	@address.destroy
+# 	redirect_to addresses_path, notice: "addresses deleted successfully!"
+
+# end
 def destroy
-	@address.destroy
-	redirect_to user_addresses_path(@user), notice: "addresses deleted successfully!"
-
+  @address = Address.find(params[:id]) # Ensure @address is correctly set
+  @address.destroy
+  redirect_to addresses_path, notice: "Address deleted successfully!"
 end
+
 
  private
 
  def set_address
-    @address = Address.find_by(id: params[:address_id])
+    @address = Address.find_by(id: params[:id])
     if @address.nil?
-      redirect_to address_path, alert: 'Address not found.'
+      redirect_to addresses_path, alert: 'Address not found.'
     end
   end
 

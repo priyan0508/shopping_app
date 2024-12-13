@@ -2,7 +2,7 @@
 
 <% @profiles.each do |profile| %>
   <p><%= profile.name %></p>
-  <%= link_to "Edit Profile", edit_profile_path(profile) %>
+  <%= link_to "Edit Profile", edit_profile_path(profile.id) %>
 <% end %>
 
 <%= link_to 'New Profile', new_profile_path %>
