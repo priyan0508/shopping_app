@@ -1,6 +1,6 @@
 <h1>Delivery Details</h1>
 
-<%= link_to "New Delivery Detail", new_product_delivery_detail_path(@product) %>
+<button><%= link_to "New Delivery Detail", new_product_delivery_detail_path(@product) %></button>
 
 <table>
   <thead>
@@ -14,8 +14,8 @@
       <tr>
         <td><%= detail.date %></td>
         <td>
-          <%= link_to 'Edit', edit_product_delivery_detail_path(@product, detail) %> |
-          <%= link_to 'Delete', product_delivery_detail_path(@product, detail), method: :delete, data: { confirm: 'Are you sure?' } %>
+         <button><%= link_to 'Edit', edit_product_delivery_detail_path(@product, detail) %></button>
+          <%= button_to 'Delete', product_delivery_detail_path(@product, detail), method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>

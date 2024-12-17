@@ -4,8 +4,8 @@
       <li>
         <%= address.colony %>, <%= address.city %>, <%= address.country %>, <%= address.pincode %>
         <%# <%= link_to 'Add address', address_path(address) %>
-        <%= link_to 'Edit', edit_address_path(address) %> |
-        <%= link_to 'Destroy', address_path(address), method: :delete, data: { turbo: false, confirm: 'Are you sure?' } %>
+        <%= button_to 'Edit', edit_address_path(address) %>
+        <%= button_to 'Delete', address_path(address), method: :delete, data: { turbo: false, confirm: 'Are you sure?' } %>
 
       </li>
     <% end %>

@@ -21,14 +21,15 @@
   </table>
 
 
-<p><%= link_to "Add Product", new_product_path %></p>
+<button><%= link_to "Add Product", new_product_path %></button><br>
 
-<%= button_to "Logout", destroy_user_session_path, method: :delete, data: { no_turbolink: true } %>
 
-<%= link_to "Show Profile", profiles_path(current_user) %>
+<button><%= link_to "Show Profile", profiles_path(current_user) %></button>
 
-<%= link_to "Addresses", new_address_path %>
+<button><%= link_to "Addresses", new_address_path %></button>
 
-<%= link_to "Add delivery_detail", new_product_delivery_detail_path(@products.first) %>
+<button><%= link_to "Add delivery_detail", new_product_delivery_detail_path(@products.first) %></button>
+
+<p><%= button_to "Logout", destroy_user_session_path, method: :delete, data: { no_turbolink: true } %></p>
 
 
